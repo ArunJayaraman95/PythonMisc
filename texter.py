@@ -13,14 +13,13 @@ def sendText(subject, body):
 
     user = os.getenv('MAIN_EMAIL')
     password = os.getenv('EMAIL_APP_PASSWORD')
-    print(f'{password = }')
 
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.starttls()
     server.login(user, password)
     server.send_message(msg)
+    print("Sent text!")
     server.quit()
 
 if __name__ == '__main__':
     sendText("Daily Update", "\nHi Arun\nHere's your daily update!")
-    print("Sent text!")
